@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #757575;
+  margin-top: 6.5rem;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.title-light { 
+  margin-bottom: 0;
+  font-family: "Space Grotesk";
+  color: #373737;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.title-bold {
+  font-size: 60px; 
+  margin-top: 0.313rem;
+  margin-bottom: 0.313rem;
+  font-family: "Space Grotesk";
+  color: black;
+}
+
+.description {
+  text-align: center;
+  max-width: 600px; 
+  margin: 1rem;
+  color: #525252;
+  font-family: "DM Sans";
+}
+
+.submit-button {
+  border-radius: 20px;
+  width: 9rem;
+  height: 2.5rem;
+  background: linear-gradient(90deg, #0181B8 0%, #0181B8 100%);
+  color: white;
+  font-family: "DM Sans";
+  justify-content: center;
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: center;
+  transition: background 500ms ease;
+}
+
+.submit-button:hover {
+  background: linear-gradient(90deg, #0181B8 0%, #C0ECFF 100%);
+  background-position: right bottom;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  margin-top: 32px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.input-box {
+  border-radius: 8px;
+  border: 1px solid #0181B8;
+  width: 26rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  margin: 1rem;
+  padding-left: 1.25rem;
+  transition: background-color 0.5s ease;
+}
+
+.input-box::placeholder {
+  color: #0181B8;
+  font-family: "DM Sans";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.input-box:focus {
+  background-color: #D6F2FF; 
+  outline: none;
+}
+
+.button {
+  padding: 10px 25px;
+  border-radius: 25px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 30px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+button {
+  padding: 8px 20px;
+  border-radius: 50px;
+  background-color: #000000;
+  color: rgb(0, 0, 0);
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 30px;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.file-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 1rem;
+}
+
+.main-card{
+  display: flex;
+  align-items: center;
+}
+
+.card-title{
+  color: black;
+  font-family: "Space Grotesk";
+  font-size: 20px;
+  font-style: normal;
+}
+
+.file-upload-box {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0px 224px 63px 0px rgba(0, 0, 0, 0.00), 0px 143px 57px 0px rgba(0, 0, 0, 0.01), 0px 81px 48px 0px rgba(0, 0, 0, 0.05), 0px 36px 36px 0px rgba(0, 0, 0, 0.09), 0px 9px 20px 0px rgba(0, 0, 0, 0.10);
+  font-family: "Space Grotesk";
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.upload-icon {
+  font-size: 16px;
+  color: #000000;
+  margin-right: 0.75rem;
+}
+
+.limit-text {
+  color: #8E8E8E;
+  font-size: 10px;
+  margin-top: -10px;
+  margin-bottom: 2rem;
+  font-family: "Space Grotesk";
+}
+
+.browse-button {
+  margin-top: 32px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.browse-button:hover {
+  background-color: #000000;
+  color: white;
+}

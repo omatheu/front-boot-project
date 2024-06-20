@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #757575;
+  margin-top: 6.5rem;
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+.title-light { 
+  margin-bottom: 0;
+  font-family: "Space Grotesk";
+  color: #373737;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.title-bold {
+  font-size: 60px; 
+  margin-top: 0.313rem;
+  margin-bottom: 0.313rem;
+  font-family: "Space Grotesk";
+  color: black;
+}
+
+.description {
+  text-align: center;
+  max-width: 600px; 
+  margin: 1rem;
+  color: #525252;
+  font-family: "DM Sans";
+}
+
+.file-upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin: 1rem;
+}
+
+.main-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+    color: #000;
+    text-align: start;
+    font-family: "Space Grotesk";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.sentiment {
+    color: #F9A719;
+    font-family: "Space Grotesk";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.file-upload-box {
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid #CEDCFF;
+  padding: 40px;
+  box-shadow: 0px 224px 63px 0px rgba(0, 0, 0, 0.00), 0px 143px 57px 0px rgba(0, 0, 0, 0.01), 0px 81px 48px 0px rgba(0, 0, 0, 0.05), 0px 36px 36px 0px rgba(0, 0, 0, 0.09), 0px 9px 20px 0px rgba(0, 0, 0, 0.10);
+  font-family: "Space Grotesk";
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.intensity-column {
+    justify-content:center;
+    text-align: center;
+    margin-right: 5rem;
+}
+
+.sentiment-column {
+    justify-content:center;
+    text-align: center;
+    margin-left: 5rem;
+}
+
+.subtitle-div {
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #CEDCFF;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 224px 63px 0px rgba(0, 0, 0, 0.00), 0px 143px 57px 0px rgba(0, 0, 0, 0.01), 0px 81px 48px 0px rgba(0, 0, 0, 0.05), 0px 36px 36px 0px rgba(0, 0, 0, 0.09), 0px 9px 20px 0px rgba(0, 0, 0, 0.10);
+    font-family: "Space Grotesk";
+    padding-left: 5rem;
+    padding-right: 5rem;
+    display: flex;
+}
+
+.results-subtitle {
+    display:flex;
+    justify-content: space-between;
+    background-color: white;
+    margin: 1rem;
+}
+
+.upload-icon {
+  font-size: 16px;
+  color: #000000;
+  margin-right: 0.75rem;
+}
+
+.classification {
+    color: #B7B7B7;
+    text-align: center;
+    font-family: "Space Grotesk";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.positive-sentiment {
+    color: #0181B8;
+    text-align: start;
+    font-family: "Space Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.negative-sentiment {
+    color: #EB5757;
+    text-align: start;
+    font-family: "Space Grotesk";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.browse-button {
+  margin-top: 32px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  background-color: transparent;
+  border: solid 1px black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.browse-button:hover {
+  background-color: #000000;
+  color: white;
+}

@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px; 
+    font-family: "DM Sans", sans-serif;;
+}
+
+.page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    padding-right: 8rem;
+}
+
+.container > div, .container > button {
+    margin-top: 1rem;
+    margin-left: 0;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 3.75rem;
+    padding-bottom: 1rem;margin-bottom: 0;
+    font-family: "Space Grotesk";
+}
+.image-container {
+    flex: 1;
+}
+
+.image-container img {
+    width: 120%; 
+    height: auto;
+}
+
+.semi-content {
+    color: #757575; 
+}
+
+.button_simulation {
+    margin-top: 32px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: black;
+    background-color: transparent;
+    border: solid 1px black;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button_simulation:hover {
+    background-color: #000000;
+    color: white;
+  }
