@@ -9,8 +9,12 @@ function Input() {
   const [responseMessage, setResponseMessage] = useState(''); // Estado para armazenar a mensagem de resposta
   const [loading, setLoading] = useState(false); // Estado para gerenciar o carregamento
   const [error, setError] = useState(null); // Estado para gerenciar erros
-
+  const [predictions, setPredictions] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const predictionsPerPage = 10;
   const [file, setFile] = useState(null);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevenir o comportamento padrão do formulário
@@ -20,7 +24,7 @@ function Input() {
     setError(null);
 
     try {
-      const response = await axios.post("http://localhost:8000/pipeline", { text: inputText });
+      const response = await axios.post("https://boot-api3.onrender.com/pipeline", { text: inputText });
       setResponseMessage(response.data.prediction);
     } catch (err) {
       console.error('Erro ao enviar texto:', err);
@@ -42,25 +46,37 @@ function Input() {
 
   const handleSubmitUpload = async (event) => {
     event.preventDefault();
-    setLoading(true); // Indicando que a requisição está sendo feita
-
+    if (!file) return;
+    
     const formData = new FormData();
     formData.append('file', file); // Certificando-se de que a chave seja "file"
+    
+    setLoading(true);
+    setError('');
+    setResponseMessage('');
 
     try {
-      const response = await axios.post("http://localhost:8000/upload", formData, {
+      const response = await axios.post("https://boot-api3.onrender.com/predict_csv", formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       }); 
-      setResponseMessage(response.data.message || 'Arquivo enviado com sucesso!');
+      setResponseMessage(response.data.message || 'File sent successfully!');
+      console.log(response.data.predictions);
+      setPredictions(response.data.predictions);
+      setCurrentPage(1);  // Reset to the first page
     } catch (err) {
-      console.error('Erro ao enviar arquivo:', err);
-      setError('Erro ao enviar arquivo. Tente novamente mais tarde.');
+      console.error('Error sending file:', err);
+      setError('Error sending file. Please try again later.');
     } finally {
       setLoading(false);
     }
   };
+
+  // Calculate the current predictions to display based on pagination
+  const indexOfLastPrediction = currentPage * predictionsPerPage;
+  const indexOfFirstPrediction = indexOfLastPrediction - predictionsPerPage;
+  const currentPredictions = predictions.slice(indexOfFirstPrediction, indexOfLastPrediction);
   
   return (
     <div>
@@ -84,42 +100,53 @@ function Input() {
             <div className="file-upload-box">
                 <div className="main-card">
                   <FontAwesomeIcon icon={faCloudUploadAlt} className="upload-icon" />
-                  <p className='card-title'>Drag and drop files here</p>
+                  <p className='card-title'>Drag and drop files here (csv with a column called 'comment')</p>
                 </div>
                 <p className="limit-text">Limit 200MB per file</p>
                   <form onSubmit={handleSubmitUpload}>
                   <label htmlFor="file-upload" className="custom-file-upload">
-                    Escolher arquivo
+                    Choose File
                   </label>
                   <input id="file-upload" type="file" accept=".csv" onChange={handleFileChange} />
                     <button className='submit-button' type="submit" disabled={loading}>Enviar</button>
                   </form>
-                  {loading && <p>Enviando arquivo...</p>}
+                  {loading && <p>Sending file...</p>}
                   {error && <p>{error}</p>}
-                  {responseMessage && <p>Resposta do servidor: {responseMessage}</p>}
+                  {responseMessage && <p>Server response: {responseMessage}</p>}
             </div>
         </div>
         <div className="results-subtitle">
             <div className="subtitle-div">
                 <div className="intensity-column">
-                  <p className='card-title'>Frase</p>
-                  <p className='positive-sentiment'>That, my friend, is why The Mighty Swift Radio Cars of Stalybridge retain my costume.</p>
-                  <p className='negative-sentiment'>Uber broke laws, duped police and secretly lobbied governments, leak reveals</p>
+                  <p className='card-title'>Comment</p>
+                  {currentPredictions.map((prediction, index) => (
+                    <p key={index} className={prediction.prediction === 1 ? 'negative-sentiment' : 'positive-sentiment'}>{prediction.comment}</p>
+                  ))}
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="2" height="174" viewBox="0 0 2 174" fill="none">
                     <path d="M1 0V174" stroke="#9CACD9"/>
                 </svg>
                 <div className="sentiment-column">
-                  <p className='card-title'>Sentimento</p>
-                  <p className='positive-sentiment'>1</p>
-                  <p className='negative-sentiment'>0</p>
+                  <p className='card-title'>Sentiment</p>
+                  {currentPredictions.map((prediction, index) => (
+                    <p key={index} className={prediction.prediction === 1 ? 'negative-sentiment' : 'positive-sentiment'}>
+                      {prediction.prediction === 1 ? '1' : '0'}
+                    </p>
+                  ))}
                 </div>
             </div>
+            {/* Pagination */}
+            {/* <div className="pagination">
+              {Array.from({ length: Math.ceil(predictions.length / predictionsPerPage) }, (_, index) => (
+                <button key={index} onClick={() => paginate(index + 1)} className={index + 1 === currentPage ? 'active' : ''}>
+                  {index + 1}
+                </button>
+              ))}
+            </div> */}
         </div>
       </div>
     </div>
   );
 }
-
 
 export default Input;
