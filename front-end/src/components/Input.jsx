@@ -138,7 +138,7 @@ function Input() {
                   <p className='card-title'>Sentiment</p>
                   {currentPredictions.map((prediction, index) => (
                     <p key={index} className={prediction.prediction === 1 ? 'negative-sentiment' : 'positive-sentiment'}>
-                      {prediction.prediction === 1 ? '1' : '0'}
+                      {prediction.prediction === 1 ? 'Negative' : 'Positive'}
                     </p>
                   ))}
                 </div>
