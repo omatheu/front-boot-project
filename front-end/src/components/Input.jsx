@@ -25,7 +25,7 @@ function Input() {
 
     try {
       const response = await axios.post("https://boot-api3.onrender.com/pipeline", { text: inputText });
-      setResponseMessage(response.data.prediction);
+      setResponseMessage(response.data);
     } catch (err) {
       console.error('Error sending text:', err);
       setError('Error sending text. Try again later.');
@@ -112,7 +112,15 @@ function Input() {
                   </form>
                   {loading && <p>Sending file...</p>}
                   {error && <p>{error}</p>}
-                  {responseMessage && <p>Server response: {responseMessage === '1' ? 'Positive' : 'Negative'}</p>}
+                  {responseMessage && (
+                    <>
+                      <p>Prediction is: {responseMessage.prediction === 1 ? 'Negative' : responseMessage.prediction === 0 ? 'Positive' : ''}</p>
+                      <p>Decision score is: {responseMessage.decision_score}</p>
+                      <p>Threshold: {responseMessage.threshold}</p>
+                      <p>Viral Score is: {responseMessage.viral_score}</p>
+                    </>
+                  )}
+                  {console.log(responseMessage)}
             </div>
         </div>
         <div className="results-subtitle">
@@ -136,13 +144,14 @@ function Input() {
                 </div>
             </div>
             {/* Pagination */}
-            {/* <div className="pagination">
-              {Array.from({ length: Math.ceil(predictions.length / predictionsPerPage) }, (_, index) => (
-                <button key={index} onClick={() => paginate(index + 1)} className={index + 1 === currentPage ? 'active' : ''}>
-                  {index + 1}
-                </button>
-              ))}
-            </div> */}
+            <div className="pagination">
+              <button className='submit-button' onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+                Previous
+              </button>
+              <button className='submit-button' onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(predictions.length / predictionsPerPage)}>
+                Next
+              </button>
+            </div>
         </div>
       </div>
     </div>
