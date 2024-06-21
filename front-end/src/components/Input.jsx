@@ -112,7 +112,7 @@ function Input() {
                   </form>
                   {loading && <p>Sending file...</p>}
                   {error && <p>{error}</p>}
-                  {responseMessage && <p>Server response: {responseMessage}</p>}
+                  {responseMessage && <p>Server response: {responseMessage === '1' ? 'Negative' : 'Positive'}</p>}
             </div>
         </div>
         <div className="results-subtitle">
