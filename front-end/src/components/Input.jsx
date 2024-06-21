@@ -83,7 +83,7 @@ function Input() {
       <div className="input-container">
         <h1 className="title-light">Boot sentiment analyst</h1>
         <h2 className="title-bold">Jäger</h2>
-        <p className="description">Simply input your text, and our tool will instantly classify it as positive, negative, or neutral. Using advanced Natural Language Processing (NLP), we provide quick and accurate sentiment analysis to help you understand the emotional tone of any message. Try it now and gain valuable insights from your text!</p>
+        <p className="description">Simply input your text, and our tool will instantly classify it as positive and negative. Using advanced Natural Language Processing (NLP), we provide quick and accurate sentiment analysis to help you understand the emotional tone of any message. Try it now and gain valuable insights from your text!</p>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
