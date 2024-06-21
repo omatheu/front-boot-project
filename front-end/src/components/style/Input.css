@@ -198,3 +198,12 @@ button {
   background-color: #000000;
   color: white;
 }
+
+.results-subtitle {
+  display: block;
+  flex-direction: column;
+}
+
+.pagination {
+  display: flex;
+}

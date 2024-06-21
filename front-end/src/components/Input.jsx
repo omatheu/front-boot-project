@@ -117,7 +117,7 @@ function Input() {
                       <p>Prediction is: {responseMessage.prediction === 1 ? 'Negative' : responseMessage.prediction === 0 ? 'Positive' : ''}</p>
                       <p><strong>Decision score is: {(responseMessage.decision_score * 100).toFixed(2)}%</strong></p>
                       <p>Threshold: {responseMessage.threshold}</p>
-                      <p><strong>Viral Score is: {(responseMessage.viral_score).toFixed(2)}</strong></p>
+                      <p><strong>Viral Score is: {(responseMessage.viral_score * 1).toFixed(2)}</strong></p>
                     </>
                   )}
                   {console.log(responseMessage)}
@@ -145,10 +145,10 @@ function Input() {
             </div>
             {/* Pagination */}
             <div className="pagination">
-              <button className='submit-button' onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
+              <button className='browse-button' onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1}>
                 Previous
               </button>
-              <button className='submit-button' onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(predictions.length / predictionsPerPage)}>
+              <button className='browse-button' onClick={() => paginate(currentPage + 1)} disabled={currentPage === Math.ceil(predictions.length / predictionsPerPage)}>
                 Next
               </button>
             </div>
