@@ -115,9 +115,9 @@ function Input() {
                   {responseMessage && (
                     <>
                       <p>Prediction is: {responseMessage.prediction === 1 ? 'Negative' : responseMessage.prediction === 0 ? 'Positive' : ''}</p>
-                      <p>Decision score is: {responseMessage.decision_score}</p>
+                      <p><strong>Decision score is: {(responseMessage.decision_score * 100).toFixed(2)}%</strong></p>
                       <p>Threshold: {responseMessage.threshold}</p>
-                      <p>Viral Score is: {responseMessage.viral_score}</p>
+                      <p><strong>Viral Score is: {(responseMessage.viral_score).toFixed(2)}</strong></p>
                     </>
                   )}
                   {console.log(responseMessage)}
