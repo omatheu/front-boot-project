@@ -18,7 +18,7 @@ function Input() {
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevenir o comportamento padrão do formulário
-    console.log('Enviando texto:', inputText); // Log para desenvolvimento, substituir pela chamada ao banco de dados
+    console.log('Sending text:', inputText); // Log para desenvolvimento, substituir pela chamada ao banco de dados
 
     setLoading(true);
     setError(null);
@@ -27,8 +27,8 @@ function Input() {
       const response = await axios.post("https://boot-api3.onrender.com/pipeline", { text: inputText });
       setResponseMessage(response.data.prediction);
     } catch (err) {
-      console.error('Erro ao enviar texto:', err);
-      setError('Erro ao enviar texto. Tente novamente mais tarde.');
+      console.error('Error sending text:', err);
+      setError('Error sending text. Try again later.');
     } finally {
       setLoading(false);
       setInputText('');
@@ -93,7 +93,7 @@ function Input() {
             onChange={handleInputChange}
           />
           <button className='submit-button' type="submit" disabled={loading}>
-            {loading ? 'Enviando...' : 'Submit'}
+            {loading ? 'Sending...' : 'Submit'}
           </button>
         </form>
         <div className="file-upload-container">
@@ -108,7 +108,7 @@ function Input() {
                     Choose File
                   </label>
                   <input id="file-upload" type="file" accept=".csv" onChange={handleFileChange} />
-                    <button className='submit-button' type="submit" disabled={loading}>Enviar</button>
+                    <button className='submit-button' type="submit" disabled={loading}>To send</button>
                   </form>
                   {loading && <p>Sending file...</p>}
                   {error && <p>{error}</p>}
